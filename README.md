@@ -146,13 +146,13 @@ Includes:
 
 ## Conversion Funnel
 
-![Conversion Funnel](https://github.com/dinesh0110/Product-analytics-bigquery/blob/main/screenshots/funnel_analysis.png)
+![Conversion Funnel](https://github.com/dinesh0110/Product-analytics-bigquery/blob/main/screenshots/funnel_dashboard.png)
 
 ---
 
 ## Retention & A/B Testing
 
-![Retention Dashboard](https://github.com/dinesh0110/Product-analytics-bigquery/blob/main/screenshots/retention_experiment.png)
+![Retention Dashboard](https://github.com/dinesh0110/Product-analytics-bigquery/blob/main/screenshots/retention_dashboard.png)
 
 ---
 
