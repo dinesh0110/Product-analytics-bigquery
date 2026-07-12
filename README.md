@@ -140,19 +140,19 @@ Includes:
 
 ## Executive Dashboard
 
-![Executive Dashboard](screenshots/dashboard_overview.png)
+![Executive Dashboard](https://github.com/dinesh0110/Product-analytics-bigquery/blob/main/screenshots/executive_dashboard.png)
 
 ---
 
 ## Conversion Funnel
 
-![Conversion Funnel](screenshots/funnel_analysis.png)
+![Conversion Funnel](https://github.com/dinesh0110/Product-analytics-bigquery/blob/main/screenshots/funnel_analysis.png)
 
 ---
 
 ## Retention & A/B Testing
 
-![Retention Dashboard](screenshots/retention_experiment.png)
+![Retention Dashboard](https://github.com/dinesh0110/Product-analytics-bigquery/blob/main/screenshots/retention_experiment.png)
 
 ---
 
