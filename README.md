@@ -39,7 +39,7 @@ The project answers key business questions such as:
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 Product-Analytics/
@@ -65,7 +65,7 @@ Product-Analytics/
 
 ---
 
-# 📊 Dashboard Pages
+#  Dashboard Pages
 
 ## 1. Executive Summary
 
@@ -111,7 +111,7 @@ Includes:
 
 ---
 
-# 📈 Key Insights
+# Key Insights
 
 - Desktop generated the highest revenue (57.7%) while mobile contributed 40.5%.
 - The largest funnel drop-off occurred between Session Start and View Item.
