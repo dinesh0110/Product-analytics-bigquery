@@ -1,10 +1,10 @@
-# 📊 Product Analytics & A/B Testing using Google BigQuery & Power BI
+# Product Analytics & A/B Testing using Google BigQuery & Power BI
 
 An end-to-end Product Analytics project built using the Google Analytics 4 (GA4) Public Ecommerce Dataset on Google BigQuery. The project demonstrates how raw event-level data can be transformed into actionable business insights through SQL, product analytics, and interactive Power BI dashboards.
 
 ---
 
-## 🚀 Project Overview
+## Project Overview
 
 This project simulates the workflow of a Product Data Analyst by:
 
@@ -17,7 +17,7 @@ This project simulates the workflow of a Product Data Analyst by:
 
 ---
 
-## 🎯 Business Objectives
+## Business Objectives
 
 The project answers key business questions such as:
 
@@ -29,7 +29,7 @@ The project answers key business questions such as:
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - Google BigQuery
 - SQL (CTEs, Window Functions, Nested Fields)
@@ -120,7 +120,7 @@ Includes:
 
 ---
 
-# 📌 Skills Demonstrated
+# Skills Demonstrated
 
 - Product Analytics
 - SQL
@@ -136,7 +136,7 @@ Includes:
 
 ---
 
-# 📷 Dashboard Preview
+# Dashboard Preview
 
 ## Executive Dashboard
 
