@@ -158,7 +158,7 @@ Includes:
 
 ## BigQuery SQL
 
-![BigQuery](screenshots/bigquery_query.png)
+![BigQuery](https://github.com/dinesh0110/Product-analytics-bigquery/blob/main/screenshots/bigquery.png)
 
 ---
 
