@@ -230,3 +230,86 @@ LEFT JOIN purchases p
 USING(user_pseudo_id)
 
 GROUP BY variant;
+
+--Funnel
+WITH funnel AS (
+SELECT
+COUNT(DISTINCT IF(event_name='session_start',user_pseudo_id,NULL)) sessions,
+COUNT(DISTINCT IF(event_name='view_item',user_pseudo_id,NULL)) viewed,
+COUNT(DISTINCT IF(event_name='add_to_cart',user_pseudo_id,NULL)) cart,
+COUNT(DISTINCT IF(event_name='begin_checkout',user_pseudo_id,NULL)) checkout,
+COUNT(DISTINCT IF(event_name='purchase',user_pseudo_id,NULL)) purchased
+FROM
+`bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*`
+)
+
+SELECT 'Session Start' AS Stage, sessions AS Users, 100.00 AS Conversion_Rate FROM funnel
+UNION ALL
+SELECT 'View Item', viewed, ROUND(viewed/sessions*100,2) FROM funnel
+UNION ALL
+SELECT 'Add to Cart', cart, ROUND(cart/viewed*100,2) FROM funnel
+UNION ALL
+SELECT 'Checkout', checkout, ROUND(checkout/cart*100,2) FROM funnel
+UNION ALL
+SELECT 'Purchase', purchased, ROUND(purchased/checkout*100,2) FROM funnel;
+
+
+--Traffic
+SELECT
+    traffic_source.source AS source,
+    COUNT(DISTINCT user_pseudo_id) AS users,
+    ROUND(SUM(ecommerce.purchase_revenue),2) AS revenue,
+    ROUND(
+        SUM(ecommerce.purchase_revenue) /
+        COUNT(DISTINCT user_pseudo_id),
+    2) AS revenue_per_user
+FROM
+`bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*`
+GROUP BY source
+ORDER BY revenue DESC;
+
+--Retention
+WITH first_visit AS (
+SELECT
+    user_pseudo_id,
+    MIN(PARSE_DATE('%Y%m%d',event_date)) first_date
+FROM
+`bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*`
+GROUP BY user_pseudo_id
+),
+
+activity AS (
+SELECT
+    e.user_pseudo_id,
+    DATE_DIFF(
+        PARSE_DATE('%Y%m%d',e.event_date),
+        f.first_date,
+        DAY
+    ) retention_day
+FROM
+`bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*` e
+JOIN first_visit f
+USING(user_pseudo_id)
+),
+
+retention AS (
+SELECT
+    retention_day,
+    COUNT(DISTINCT user_pseudo_id) users
+FROM activity
+GROUP BY retention_day
+),
+
+base AS (
+SELECT users AS day0_users
+FROM retention
+WHERE retention_day=0
+)
+
+SELECT
+    retention_day,
+    users,
+    ROUND(users/day0_users*100,2) retention_percent
+FROM retention
+CROSS JOIN base
+ORDER BY retention_day;
